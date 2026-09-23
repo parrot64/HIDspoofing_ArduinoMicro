@@ -1,0 +1,18 @@
+@startuml Scenario
+
+actor User as user
+card DigiSpark as digi
+component Workstation as comp
+
+component Server as server {
+    file Script as script #line.dotted
+}
+
+user -> digi : 1
+digi -> comp : 2
+
+comp -down-> script : 3
+
+comp <-> server : 4
+
+@enduml

@@ -1,0 +1,39 @@
+@startuml Scenario
+' left to right direction
+' skinparam linetype polyline
+' skinparam linetype ortho
+
+actor User as user
+card DigiSpark as digi
+
+user -> digi : 1
+
+frame Computer {
+    port USB as usb
+    component System as system
+    file Script as script_comp
+}
+
+digi -down-> usb : 2
+' digi -> usb : 2
+
+usb -down-> system : 3
+' usb -> system : 3
+
+cloud "Local Network" {
+    component Server as server {
+        file Script as script_network #line.dotted
+    }
+}
+
+system -> script_network : 4
+' system -> script_network : 4
+
+script_network -> script_comp : 5
+
+system -down-> script_comp : 6
+
+script_comp -> system : 7
+script_comp <-> server : 8
+
+@enduml

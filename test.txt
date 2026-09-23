@@ -1,0 +1,1 @@
+http://192.168.31.234:3000/api/userInfo?pc=testComp&user=testuser&ip=testip&guid=testguid
